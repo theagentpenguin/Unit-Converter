@@ -1,0 +1,16 @@
+* {
+    background: cyan;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+}
+
+#output_field{
+    border: 1px black solid;
+    width: 200px;
+    padding: 10px;
+}
