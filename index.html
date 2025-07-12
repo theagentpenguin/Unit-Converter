@@ -5,65 +5,138 @@
         <script src="unitConverter.js"></script>
     </head>
     <body>
-        <h1>Unit Converter</h1>
-        <div class="tabs">
-            <button type="button" class="tab" onclick="switchTab('length')">Length</button>
-            <button type="button" class="tab" onclick="switchTab('weight')">Weight</button>
-            <button type="button" class="tab" onclick="switchTab('temperature')">Temperature</button>
+    <div class="container">
+        <!-- Input Section -->
+        <div class="converter-card">
+            <h2>Unit Converter</h2>
+            
+            <div class="tabs">
+                <button type="button" class="tab active" onclick="switchTab('length')">Length</button>
+                <button type="button" class="tab" onclick="switchTab('weight')">Weight</button>
+                <button type="button" class="tab" onclick="switchTab('temperature')">Temperature</button>
+            </div>
+
+            <!-- Length Converter Form -->
+            <form id="lengthForm" class="converter-form active" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="lengthInput">Enter the length to convert</label>
+                    <input type="number" id="lengthInput" name="lengthValue" step="any" placeholder="Enter value" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lengthFrom">Unit to Convert from</label>
+                    <select id="lengthFrom" name="lengthFromUnit" required>
+                        <option value="ft">Feet (ft)</option>
+                        <option value="m">Meters (m)</option>
+                        <option value="cm">Centimeters (cm)</option>
+                        <option value="in">Inches (in)</option>
+                        <option value="mm">Millimeters (mm)</option>
+                        <option value="km">Kilometers (km)</option>
+                        <option value="yd">Yards (yd)</option>
+                        <option value="mi">Miles (mi)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lengthTo">Unit to Convert to</label>
+                    <select id="lengthTo" name="lengthToUnit" required>
+                        <option value="cm">Centimeters (cm)</option>
+                        <option value="ft">Feet (ft)</option>
+                        <option value="m">Meters (m)</option>
+                        <option value="in">Inches (in)</option>
+                        <option value="mm">Millimeters (mm)</option>
+                        <option value="km">Kilometers (km)</option>
+                        <option value="yd">Yards (yd)</option>
+                        <option value="mi">Miles (mi)</option>
+                    </select>
+                </div>
+                
+                <input type="submit" value="Convert" class="submit-btn">
+            </form>
+
+            <!-- Weight Converter Form -->
+            <form id="weightForm" class="converter-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="weightInput">Enter the weight to convert</label>
+                    <input type="number" id="weightInput" name="weightValue" step="any" placeholder="Enter value" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="weightFrom">Unit to Convert from</label>
+                    <select id="weightFrom" name="weightFromUnit" required>
+                        <option value="kg">Kilograms (kg)</option>
+                        <option value="g">Grams (g)</option>
+                        <option value="lb">Pounds (lb)</option>
+                        <option value="oz">Ounces (oz)</option>
+                        <option value="t">Tons (t)</option>
+                        <option value="st">Stones (st)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="weightTo">Unit to Convert to</label>
+                    <select id="weightTo" name="weightToUnit" required>
+                        <option value="g">Grams (g)</option>
+                        <option value="kg">Kilograms (kg)</option>
+                        <option value="lb">Pounds (lb)</option>
+                        <option value="oz">Ounces (oz)</option>
+                        <option value="t">Tons (t)</option>
+                        <option value="st">Stones (st)</option>
+                    </select>
+                </div>
+                
+                <input type="submit" value="Convert" class="submit-btn">
+            </form>
+
+            <!-- Temperature Converter Form -->
+            <form id="temperatureForm" class="converter-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="tempInput">Enter the temperature to convert</label>
+                    <input type="number" id="tempInput" name="tempValue" step="any" placeholder="Enter value" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tempFrom">Unit to Convert from</label>
+                    <select id="tempFrom" name="tempFromUnit" required>
+                        <option value="c">Celsius (°C)</option>
+                        <option value="f">Fahrenheit (°F)</option>
+                        <option value="k">Kelvin (K)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tempTo">Unit to Convert to</label>
+                    <select id="tempTo" name="tempToUnit" required>
+                        <option value="f">Fahrenheit (°F)</option>
+                        <option value="c">Celsius (°C)</option>
+                        <option value="k">Kelvin (K)</option>
+                    </select>
+                </div>
+                
+                <input type="submit" value="Convert" class="submit-btn">
+            </form>
         </div>
-        <form id="lengthForm" class="convter-form active">
-            <label>Enter the length to convert</label><br>
-            <input id="inp_length" type="number" placeholder="enter a value"><br>
 
-            <label>Unit to convert from</label><br>
-            <select id="inp_length1" type="text">
-                <option value="ft">Feet (ft)</option>
-                <option value="m">Meter (m)</option>
-                <option value="cm">Centimeters (cm)</option>
-                <option value="in">Inches (in)</option>
-                <option value="mm">Millimeters (mm)</option>
-                <option value="km">Kilometers (km)</option>
-                <option value="yd">Yards (yd)</option>
-                <option value="mi">Miles (mi)</option>
-            </select><br>
-
-            <label>Unit to convert to</label><br>
-            <select id="inp_length2" type="text">
-                <option value="ft">Feet (ft)</option>
-                <option value="m">Meter (m)</option>
-                <option value="cm">Centimeters (cm)</option>
-                <option value="in">Inches (in)</option>
-                <option value="mm">Millimeters (mm)</option>
-                <option value="km">Kilometers (km)</option>
-                <option value="yd">Yards (yd)</option>
-                <option value="mi">Miles (mi)</option>
-            </select><br>
-        </form>
-        <form id="weightForm" class="converter-form active">
-            <label>Enter the weight to convert</label><br>
-            <input id="inp_weight" type="number" placeholder="enter a value"><br>
+        <!-- Result Section -->
+        <div class="converter-card">
+            <h2>Unit Converter</h2>
             
-            <label for="weightFrom">Unit to Convert from</label>
-            <select id="weightFrom" name="weightFromUnit" required>
-            <option value="kg">Kilograms (kg)</option>
-            <option value="g">Grams (g)</option>
-            <option value="lb">Pounds (lb)</option>
-            <option value="oz">Ounces (oz)</option>
-            <option value="t">Tons (t)</option>
-            <option value="st">Stones (st)</option>
-            </select>
+            <div class="tabs">
+                <span class="tab active" id="resultTab">Length</span>
+                <span class="tab">Weight</span>
+                <span class="tab">Temperature</span>
+            </div>
 
-            <label for="weightTo">Unit to Convert to</label>
-            <select id="weightTo" name="weightToUnit" required>
-            <option value="g">Grams (g)</option>
-            <option value="kg">Kilograms (kg)</option>
-            <option value="lb">Pounds (lb)</option>
-            <option value="oz">Ounces (oz)</option>
-            <option value="t">Tons (t)</option>
-            <option value="st">Stones (st)</option>
-            </select>            
+            <h3>Result of your calculation</h3>
             
-        </form>
-        <button onClick="letsTest()">convert</button>
+            <div class="result" id="result">
+                Enter values and click Convert
+            </div>
+            
+            <form id="resetForm" onsubmit="return false;">
+                <input type="submit" value="Reset" class="reset-btn">
+            </form>
+        </div>
+    </div>
     </body>
 </html>
